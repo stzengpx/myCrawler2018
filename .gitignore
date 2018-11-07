@@ -1,0 +1,9 @@
+# 檔案名稱 .gitignore
+# 忽略所有 data 目錄下附檔名是 .xlsx 的檔案
+data/**/*.xlsx
+data/*.xlsx
+venv
+venv/*
+.vscode
+.vscode/*
+.DS_Store
