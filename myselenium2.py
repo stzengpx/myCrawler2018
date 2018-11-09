@@ -17,9 +17,12 @@ from openpyxl.utils import get_column_letter
 import sys
 
 # App History
-myAppVersion = "2018110701"
+myAppVersion = "2018110901"
 
 '''
+### myAppVersion = "2018110901"
+* Modify README.md
+
 ### myAppVersion = "2018110701"
 * Use python3 directly in mycrawlerrun.sh instead of python
 

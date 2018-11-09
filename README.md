@@ -1,6 +1,6 @@
 # MyCrawler
 
-自動抓取 "商工登記公示資料查詢服務 - https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" 資料
+自動抓取 "商工登記公示資料查詢服務 - https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" 資料，然後再輸出成 Excel 的表格檔案。
 
 ## Getting Started
 
@@ -31,14 +31,40 @@ The step will be...
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```   
 2. git
+```
+brew install git
+```
 3. wget
+```
+brew install wget
+```
 4. python
-5. virtualenv
-    1. virtualenv -p python3 venv
-6. pip
-7. Selenium
-8. Selenium WebDriver - ChromeDriver 2.43
-9.  openpyxl
+```
+brew install python
+```
+5. pip
+```
+easy_install pip
+```
+6. virtualenv
+* Install
+```
+pip install virtualenv
+```
+* Run
+```
+virtualenv -p python3 venv
+```
+7. openpyxl
+```
+pip install openpyxl
+```
+8. Selenium
+```
+pip install selenium
+```
+9.  Selenium WebDriver - ChromeDriver 2.43
+[Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
 #### Install all the packages for developing the project
 ```
@@ -55,7 +81,7 @@ cd mycrawler; source bin/activate; clear;
 ```
 程式執行的指令格式如下：
 ```
-python myselenium2.py [Arg1] [Arg2] [Arg3] [Arg4] [Arg5]
+python myselenium2.py [Arg1] [Arg2] [Arg3] [Arg4] [Arg5] [Arg6]
 ```
 * Arg1: 輸入地址區域關鍵字查詢字串
 * Arg2: 輸入啟始頁數，請輸入阿拉伯數字。最少請輸入 1
@@ -67,9 +93,11 @@ python myselenium2.py [Arg1] [Arg2] [Arg3] [Arg4] [Arg5]
     * Bit4: 工廠
     * Bit5: 有限合夥
 * Arg5: 程式結束時，是否依然開著瀏覽器。1表示開著；0表式關閉。
+* Arg6: 是否採用 Chrome Headless Mode。1表示隱藏；0表式顯示 Chrome。
+
 ### Example:
 ```
-python myselenium2.py 台中市北區 1 0 10000 0
+python myselenium2.py 台中市北區 1 0 10000 0 1
 ```
 ## Running the application for users
 
@@ -89,7 +117,6 @@ mkdir findbiz
 cd findbiz
 wget https://github.com/stzengpx/myCrawler2018/archive/master.zip
 unzip -oq master.zip
-# export PIP_REQUIRE_VIRTUALENV=true
 cp myCrawler2018-master/mycrawler.sh ~/findbiz/
 ```
 
@@ -122,6 +149,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * A template to make good README.md - https://goo.gl/tp2n6X
 
 ## Version
+
+### myAppVersion = "2018110901"
+* Modify README.md
+* Add Chrome Headless Mode
 
 ### myAppVersion = "2018103101"
 * Add features: Auto Update

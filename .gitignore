@@ -2,6 +2,8 @@
 # 忽略所有 data 目錄下附檔名是 .xlsx 的檔案
 data/**/*.xlsx
 data/*.xlsx
+data/**/*.csv
+data/*.csv
 venv
 venv/*
 .vscode
