@@ -9,15 +9,17 @@
 ### Prerequisites
 
 #### 硬體
-* MacBook Pro 15 Early 2011 (以上)
+* MacBook Pro 15 Early 2011
 * 2.0GHz 四核心 Intel Core i7
-* 8GB (兩個 4GB SO-DIMM) 1333MHz DDR3 SDRAM
-* 256GB 或 512GB 固態磁碟
+* 8GB 1333MHz DDR3 SDRAM
+* 256GB 固態磁碟
 
 #### 軟體
 * macOS 10.13 High Sierra
-* Google Chrome 版本 70.0.3538.67 (正式版本) (64 位元) (以上)
+* Google Chrome 版本 70.0.3538.67 (正式版本) (64 位元)
 * Visual Studio Code 版本 1.28.2（1.28.2）
+* [iTerm2](https://medium.com/statementdog-engineering/prettify-your-zsh-command-line-prompt-3ca2acc967f)
+* 本程式為 Consol Application written in Python 
 
 ### Installing
 
@@ -26,7 +28,7 @@ A step by step series of examples that tell you how to get a development env run
 The step will be...
 1. brew
 
-    [macOS 缺少套件的管理工具 — macOS 缺少套件的管理工](https://goo.gl/rtR1Jd)
+[macOS 缺少套件的管理工具 — macOS 缺少套件的管理工](https://goo.gl/rtR1Jd)
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```   
@@ -66,7 +68,7 @@ pip install selenium
 9.  Selenium WebDriver - ChromeDriver 2.43
 [Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
-#### Install all the packages for developing the project
+#### (option) Install all the packages for developing the project
 ```
 pip freeze > requirements.txt # only for the really creator of this project
 pip install pur
@@ -83,17 +85,17 @@ cd mycrawler; source bin/activate; clear;
 ```
 python myselenium2.py [Arg1] [Arg2] [Arg3] [Arg4] [Arg5] [Arg6]
 ```
-* Arg1: 輸入地址區域關鍵字查詢字串
-* Arg2: 輸入啟始頁數，請輸入阿拉伯數字。最少請輸入 1
-* Arg3: 輸入結束頁數，請輸入阿拉伯數字。0 表示最後一頁；此參數最大值為498。
-* Arg4: 輸入資料種類；請輸入5個bits，例如：10100 (1表示勾選；2表示不選)
+* Arg1: 文字；輸入地址區域關鍵字查詢字串
+* Arg2: 數字；輸入啟始頁數，請輸入阿拉伯數字。最少請輸入 1
+* Arg3: 數字；輸入結束頁數，請輸入阿拉伯數字。0 表示最後一頁；此參數最大值為498。
+* Arg4: 數字(5 Bits)；輸入資料種類；請輸入5個bits，例如：10100 (1表示勾選；2表示不選)
     * Bit1 (最左邊): 公司 
     * Bit2: 分公司
     * Bit3: 商業
     * Bit4: 工廠
     * Bit5: 有限合夥
-* Arg5: 程式結束時，是否依然開著瀏覽器。1表示開著；0表式關閉。
-* Arg6: 是否採用 Chrome Headless Mode。1表示隱藏；0表式顯示 Chrome。
+* Arg5: 數字；程式結束時，是否依然開著瀏覽器。1表示開著；0表式關閉。
+* Arg6: 數字；是否採用 Chrome Headless Mode。1表示隱藏；0表式顯示 Chrome。
 
 ### Example:
 ```
