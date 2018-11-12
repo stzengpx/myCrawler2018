@@ -68,7 +68,7 @@ pip install selenium
 9.  Selenium WebDriver - ChromeDriver 2.43
 [Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
-#### (option) Install all the packages for developing the project
+#### (optional) Install all the packages for developing the project
 ```
 pip freeze > requirements.txt # only for the really creator of this project
 pip install pur
@@ -87,7 +87,7 @@ python myselenium2.py [Arg1] [Arg2] [Arg3] [Arg4] [Arg5] [Arg6]
 ```
 * Arg1: 文字；輸入地址區域關鍵字查詢字串
 * Arg2: 數字；輸入啟始頁數，請輸入阿拉伯數字。最少請輸入 1
-* Arg3: 數字；輸入結束頁數，請輸入阿拉伯數字。0 表示最後一頁；此參數最大值為498。
+* Arg3: 數字；輸入結束頁數，請輸入阿拉伯數字。0 表示最後一頁；因目標網頁的限制，無法查看超過 500 頁的資料，故此參數最大值預設為498。
 * Arg4: 數字(5 Bits)；輸入資料種類；請輸入5個bits，例如：10100 (1表示勾選；2表示不選)
     * Bit1 (最左邊): 公司 
     * Bit2: 分公司
