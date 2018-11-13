@@ -26,29 +26,31 @@
 A step by step series of examples that tell you how to get a development env running
 
 The step will be...
-1. brew
-
-[macOS 缺少套件的管理工具 — macOS 缺少套件的管理工](https://goo.gl/rtR1Jd)
+1. xcode
+```
+[Download and Install](https://developer.apple.com/xcode/)
+```
+2. [brew](https://goo.gl/rtR1Jd)
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```   
-2. git
+3. git
 ```
 brew install git
 ```
-3. wget
+4. wget
 ```
 brew install wget
 ```
-4. python
+5. python
 ```
 brew install python
 ```
-5. pip
+6. pip
 ```
 easy_install pip
 ```
-6. virtualenv
+7. virtualenv
 * Install
 ```
 pip install virtualenv
@@ -57,15 +59,15 @@ pip install virtualenv
 ```
 virtualenv -p python3 venv
 ```
-7. openpyxl
+8. openpyxl
 ```
 pip install openpyxl
 ```
-8. Selenium
+9. Selenium
 ```
 pip install selenium
 ```
-9.  Selenium WebDriver - ChromeDriver 2.43
+10.  Selenium WebDriver - ChromeDriver 2.43
 [Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
 
 #### (optional) Install all the packages for developing the project
@@ -111,7 +113,7 @@ python myselenium2.py 台中市北區 1 0 10000 0 1
 * Selenium WebDriver - ChromeDriver 2.43
 * wget
 
-請下載-[操作手冊](https://goo.gl/QXufJV)
+請下載 - [操作手冊](https://goo.gl/QXufJV)
 
 ### Initial for the first run
 ```
