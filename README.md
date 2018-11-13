@@ -111,6 +111,8 @@ python myselenium2.py 台中市北區 1 0 10000 0 1
 * Selenium WebDriver - ChromeDriver 2.43
 * wget
 
+請下載-[操作手冊](https://goo.gl/QXufJV)
+
 ### Initial for the first run
 ```
 clear
