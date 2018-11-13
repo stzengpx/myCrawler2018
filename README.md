@@ -27,9 +27,7 @@ A step by step series of examples that tell you how to get a development env run
 
 The step will be...
 1. xcode
-```
 [Download and Install](https://developer.apple.com/xcode/)
-```
 2. [brew](https://goo.gl/rtR1Jd)
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
