@@ -152,6 +152,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Version
 
+### myAppVersion = "2018111301"
+* Close first Popup Page
+* Modify queryCmpyDetail Fields
+* officialSiteVersion = "1.3.1" # 20181113
+
 ### myAppVersion = "2018110901"
 * Modify README.md
 * Add Chrome Headless Mode

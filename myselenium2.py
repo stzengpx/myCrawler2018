@@ -17,9 +17,16 @@ from openpyxl.utils import get_column_letter
 import sys
 
 # App History
-myAppVersion = "2018110901"
+officialSiteVersion = "1.2.9" # 20181101
+officialSiteVersion = "1.3.1" # 20181113
+myAppVersion = "2018111301"
 
 '''
+### myAppVersion = "2018111301"
+* Close first Popup Page
+* Modify queryCmpyDetail Fields
+* officialSiteVersion = "1.3.1" # 20181113
+
 ### myAppVersion = "2018110901"
 * Modify README.md
 
@@ -66,6 +73,8 @@ print("arg42-brCmpyType: " + sys.argv[4][1:2])
 print("arg43-busmType: " + sys.argv[4][2:3])
 print("arg44-factType: " + sys.argv[4][3:4])
 print("arg45-lmtdType: " + sys.argv[4][4:5])
+print("arg5: "  + sys.argv[5])
+print("arg6: "  + sys.argv[6])
 
 myQryCond       = sys.argv[1].strip()
 myStartPage     = int(sys.argv[2])
@@ -188,7 +197,7 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                 TmpName     = TmpName.strip()
             elif TmpDataType == "外國公司認許基本資料":
-                TmpCorpHeader = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[5]").get_attribute("innerHTML")
+                TmpCorpHeader = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[7]").get_attribute("innerHTML")
                 TmpCorpHeader = TmpCorpHeader.strip()
                 if TmpCorpHeader == "公司名稱":
                     TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
@@ -212,25 +221,25 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 TmpCorpType    = TmpCorpType.strip()
                 TmpAmountReal  = ""
                 if TmpCorpType == "公司屬性":
-                    TmpAmountReal = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[11]").get_attribute("innerHTML")
-                    TmpAmountReal = TmpAmountReal.strip()
-                else:
-                    TmpAmountReal = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[9]").get_attribute("innerHTML")
-                    TmpAmountReal = TmpAmountReal.strip()
-                if TmpStockStatus == "僑外資":
                     TmpAmountReal = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[13]").get_attribute("innerHTML")
                     TmpAmountReal = TmpAmountReal.strip()
+                else:
+                    TmpAmountReal = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[11]").get_attribute("innerHTML")
+                    TmpAmountReal = TmpAmountReal.strip()
+                if TmpStockStatus == "僑外資":
+                    TmpAmountReal = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[15]").get_attribute("innerHTML")
+                    TmpAmountReal = TmpAmountReal.strip()
                     if TmpAmountReal == "實收資本額(元)" :
-                        TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[8]").get_attribute("innerHTML")
-                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[18]").get_attribute("innerHTML")
-                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
+                        TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[10]").get_attribute("innerHTML")
+                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[20]").get_attribute("innerHTML")
+                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[18]").get_attribute("innerHTML")
                         TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                         TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                         TmpName     = TmpName.strip()
                     else:
                         TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[8]").get_attribute("innerHTML")
-                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
-                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
+                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[18]").get_attribute("innerHTML")
+                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
                         TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                         TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                         TmpName     = TmpName.strip()
@@ -240,22 +249,22 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 elif TmpAmountReal == "實收資本額(元)" :
                     if TmpCorpType == "公司屬性":
                         TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
-                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
-                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
+                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[18]").get_attribute("innerHTML")
+                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
                         TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                         TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                         TmpName     = TmpName.strip()                        
                     else:
                         TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
-                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
-                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
+                        TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
+                        TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
                         TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                         TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                         TmpName     = TmpName.strip()
                 else:
                     TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
-                    TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
-                    TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[10]").get_attribute("innerHTML")
+                    TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
+                    TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
                     TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                     TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                     TmpName     = TmpName.strip()
@@ -274,8 +283,8 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 # quit()
             elif TmpDataType == "商業登記基本資料(分支機構)":
                 TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[10]").get_attribute("innerHTML")
-                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
-                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
+                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[18]").get_attribute("innerHTML")
+                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
                 #TmpName     = _myweb.find_element_by_xpath("//*[@id='tabBusmContent']/div/table/tbody/tr[6]/td[2]/table/tbody/tr/td[1]").get_attribute("innerHTML")
                 TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                 TmpAdd      = TmpAdd[0:TmpAdd.index('<span')].strip()
@@ -283,8 +292,8 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 # quit()
             elif TmpDataType == "大陸公司許可基本資料":
                 TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[8]").get_attribute("innerHTML")
-                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
-                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
+                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
+                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
                 #TmpName     = _myweb.find_element_by_xpath("//*[@id='tabBusmContent']/div/table/tbody/tr[6]/td[2]/table/tbody/tr/td[1]").get_attribute("innerHTML")
                 TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                 TmpAdd      = TmpAdd[0:TmpAdd.index('<span')].strip()
@@ -292,8 +301,8 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 #quit()
             elif TmpDataType == "大陸公司許可報備基本資料":
                 TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[8]").get_attribute("innerHTML")
-                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
-                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[10]").get_attribute("innerHTML")
+                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
+                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
                 #TmpName     = _myweb.find_element_by_xpath("//*[@id='tabBusmContent']/div/table/tbody/tr[6]/td[2]/table/tbody/tr/td[1]").get_attribute("innerHTML")
                 TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                 TmpAdd      = TmpAdd[0:TmpAdd.index('<span')].strip()
@@ -316,6 +325,72 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 tableMyError.append([str(DateTimeNow),TmpDataType,_PageCurrent,str(i)])
                 continue
             # quit()
+            _worksheet.append([_PageCurrent,str(i),TmpCorp,TmpAdd,TmpName,TmpDataType,str(DateTimeNow)])
+            #time.sleep(1)
+            _myweb.back()
+            _myweb.implicitly_wait(timeoutImplicitlyWait)
+            myCheckTitle(_myweb)
+            i = i + 1
+            #time.sleep(1)
+        except Exception as e:
+            try:
+                if TmpStockStatus == "僑外資":
+                    TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[8]").get_attribute("innerHTML")
+                    TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
+                    TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
+                    TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
+                    TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
+                    TmpName     = TmpName.strip()
+                else:
+                    print('Error! MyMoreLinkCollection1:' + str(i))
+                    print(e)
+                    tableMyError.append([str(DateTimeNow),myQryCond,myStartPage,myStopPage,myDataType,'Error! MyMoreLinkCollection1',TmpDataType,_PageCurrent,str(i)])
+                _myweb.back()
+                _myweb.implicitly_wait(timeoutImplicitlyWait)
+                myCheckTitle(_myweb)
+                i = i + 1
+                # quit()
+                continue
+            except Exception as e:
+                print('Error! MyMoreLinkCollection2:' + str(i))
+                print(e)
+                tableMyError.append([str(DateTimeNow),myQryCond,myStartPage,myStopPage,myDataType,'Error! MyMoreLinkCollection2',TmpDataType,_PageCurrent,str(i)])
+                _myweb.back()
+                _myweb.implicitly_wait(timeoutImplicitlyWait)
+                myCheckTitle(_myweb)
+                i = i + 1
+                continue
+
+def MyMoreLinkCollection2(_workbook, _worksheet, _myweb, _PageCurrent):
+    CountMoreLinkMouseOut = len(_myweb.find_elements_by_xpath("//*[@class='moreLinkMouseOut']"))
+    # ListMoreLink = list()
+    TmpStockStatus = ""
+    TmpAmountReal = ""
+    TmpPageTitleTest = ""
+    i = 1
+    while i < CountMoreLinkMouseOut+1 :
+    #for i in range(1,CountMoreLinkMouseOut+1,1):
+        # if TmpPageTitleTest == "錯誤" : i = i - 1
+        try:
+            DateTimeNow = datetime.datetime.now()
+            # TmpMoreLink = myweb.find_element_by_xpath("(//*[@class='moreLinkMouseOut'])["+str(i)+"]").get_attribute("onclick")
+            # ListMoreLink.append(TmpMoreLink)
+            if isDebugMode : print("[頁,筆]: " + _PageCurrent + "," + str(i) + "," + str(DateTimeNow))
+            # Scroll to Element
+            # python - Scrolling to element using webdriver? - Stack Overflow - https://goo.gl/1Ci6uf
+            element = _myweb.find_element_by_xpath("(//*[@class='moreLinkMouseOut'])["+str(i)+"]")
+            _myweb.execute_script("arguments[0].scrollIntoView();", element)
+            element.click()
+            _myweb.implicitly_wait(timeoutImplicitlyWait)
+            TmpPageTitleTest = myCheckTitle(_myweb)
+            # if isDebugMode: print ("TmpPageTitleTest: " + TmpPageTitleTest)
+            if TmpPageTitleTest == "錯誤" : 
+                _myweb.back()
+                _myweb.implicitly_wait(timeoutImplicitlyWait)
+                continue
+            TmpCorp,TmpAdd,TmpName = ""
+            TmpDataType = _myweb.find_element_by_xpath("//*[@class='tab-content']/div/h3").get_attribute("innerHTML")
+            TmpDataType = TmpDataType.strip()
             _worksheet.append([_PageCurrent,str(i),TmpCorp,TmpAdd,TmpName,TmpDataType,str(DateTimeNow)])
             #time.sleep(1)
             _myweb.back()
@@ -374,13 +449,32 @@ tableMylog = [['','','','','']] # ['DateTime', 'qryCond', 'DataRowsTotal', 'Page
 tableMyError = []
 
 # Open the URL
-option = webdriver.ChromeOptions()
-option.add_argument('headless')
-if (myHeadlessMode) :
-    myweb = webdriver.Chrome(options=option)
+optionA = webdriver.ChromeOptions()
+optionA.add_argument('headless')
+optionA.add_argument("--disable-popup-blocking")
+
+optionB = webdriver.ChromeOptions()
+# optionB.add_argument('--disable-popup-blocking')
+chrome_prefs = {}
+optionB.experimental_options["prefs"] = chrome_prefs
+chrome_prefs["profile.default_content_settings"] = { "popups": 0 }
+
+if (myHeadlessMode == "1") :
+    print('HeadLessMode = true')
+    myweb = webdriver.Chrome(options=optionA)
 else :
-    myweb = webdriver.Chrome()
+    print('HeadLessMode = false')
+    myweb = webdriver.Chrome(options=optionB)
 myweb.get('https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do')
+myweb.implicitly_wait(timeoutImplicitlyWait)
+
+# Popup
+# selenium.webdriver.ChromeOptions Python Example - https://goo.gl/2jnnUc
+# Selenium disable popup blocker in different browsers · Tech Adventures by Tarun Lalwani - https://goo.gl/vTpmH5 
+# Selenium Webdriver with Python - driver.title parameter - Stack Overflow - https://goo.gl/fhjtn4
+myweb.switch_to.window(myweb.window_handles[1])
+myweb.close()
+myweb.switch_to.window(myweb.window_handles[0])
 myweb.implicitly_wait(timeoutImplicitlyWait)
 
 # Search Criteria Entrance
@@ -403,11 +497,14 @@ PageCurrent   = ""
 PageTitle     = ""
 
 try:
+    print("程式運行中，請等待 1 分鐘以上")
+    print("請勿關閉程式......")
     DataRowsTotal = myweb.find_element_by_id('totalCount').get_attribute("value")
     PageTotal     = myweb.find_element_by_id('totalPage').get_attribute("value")
     PageCurrent   = myweb.find_element_by_id('currentPage').get_attribute("value")
 except Exception as e:
     print(e)
+    print("程式正常，搜尋結果只有 1 頁.....")
     DataRowsTotal = myweb.find_element_by_xpath("(//*[@class='col-lg-12 col-md-12 col-sm-12 col-xs-12']/div)[7]").get_attribute("innerHTML")
     DataRowsTotal = DataRowsTotal[DataRowsTotal.index("共")+1:DataRowsTotal.index("筆")].strip()
     DataRowsTotal = DataRowsTotal.strip("</span>")
@@ -418,7 +515,7 @@ if isDebugMode : print("DataRowsTotal: " + DataRowsTotal)
 if isDebugMode : print("PageTotal: " + PageTotal)
 
 ws.append(['qryCond','搜尋資料','資料種類','登記現況','搜尋筆數','搜尋頁數','程式版本','網頁版本'])
-ws.append([myQryCond,'infoAddr',myDataType,'isAliveY',DataRowsTotal,PageTotal,myAppVersion,'v1.2.9']) # 商工登記公示資料查詢服務 - https://goo.gl/D6onx3
+ws.append([myQryCond,'infoAddr',myDataType,'isAliveY',DataRowsTotal,PageTotal,myAppVersion,officialSiteVersion]) # 商工登記公示資料查詢服務 - https://goo.gl/D6onx3
 ws.append(['頁次','筆次','公司','地址','負責人','資料種類','抓取時間'])
 
 i = myStartPage
@@ -454,6 +551,7 @@ while i < int(PageTotal)+1:
     DateTimeNow = datetime.datetime.now()
     tableMylog = [[DateTimeNow,myAppVersion,str(mySessionID),myQryCond,myStartPage,myStopPage,myDataType,DataRowsTotal,PageTotal,PageCurrent]]
     MyMoreLinkCollection(wb, ws, myweb, PageCurrent)
+    # MyMoreLinkCollection2(wb, ws, myweb, PageCurrent)
     #保存
     wb.save(filename="data/myCrawler2018_" + myQryCond + "_" + myDataType + "_" + str(mySessionID) + "_" + str(DateTimeNowFile.strftime("%Y%m%d%H%M%S")) + ".xlsx")
     with open('data/mylog_' + str(DateTimeNowFile.strftime("%Y%m")) + '.csv', 'a', newline='') as csvfile:
