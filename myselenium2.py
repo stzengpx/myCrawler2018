@@ -197,7 +197,7 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                 TmpName     = TmpName.strip()
             elif TmpDataType == "外國公司認許基本資料":
-                TmpCorpHeader = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[7]").get_attribute("innerHTML")
+                TmpCorpHeader = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[5]").get_attribute("innerHTML")
                 TmpCorpHeader = TmpCorpHeader.strip()
                 if TmpCorpHeader == "公司名稱":
                     TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
