@@ -511,8 +511,8 @@ except Exception as e:
     PageTotal     = "1"
     PageCurrent   = "1"
     
-if isDebugMode : print("DataRowsTotal: " + DataRowsTotal)
-if isDebugMode : print("PageTotal: " + PageTotal)
+print("DataRowsTotal: " + DataRowsTotal)
+print("PageTotal: " + PageTotal)
 
 ws.append(['qryCond','搜尋資料','資料種類','登記現況','搜尋筆數','搜尋頁數','程式版本','網頁版本'])
 ws.append([myQryCond,'infoAddr',myDataType,'isAliveY',DataRowsTotal,PageTotal,myAppVersion,officialSiteVersion]) # 商工登記公示資料查詢服務 - https://goo.gl/D6onx3
@@ -536,8 +536,10 @@ while i < int(PageTotal)+1:
     elementTitle = myweb.find_element_by_tag_name("title")
     elementTitleHtml = elementTitle.get_attribute("innerHTML")
     PageTitle = elementTitleHtml
-    if isDebugMode : print("Search: " + myQryCond)
-    if isDebugMode : print("PageTitle: " + PageTitle)
+    print("官方網址版本: " + officialSiteVersion)
+    print("本程式版本: " + myAppVersion)
+    print("Search: " + myQryCond)
+    print("PageTitle: " + PageTitle)
     if PageTitle == "錯誤":
         time.sleep(10)
         myweb.back()
@@ -545,8 +547,8 @@ while i < int(PageTotal)+1:
     # Go into detail
     if int(PageTotal) > 1:
         PageCurrent   = myweb.find_element_by_id('currentPage').get_attribute("value")
-        if isDebugMode : print("PageTotal: " + PageTotal)
-        if isDebugMode : print("PageCurrent: " + PageCurrent)
+        print("PageTotal: " + PageTotal)
+        print("PageCurrent: " + PageCurrent)
 
     DateTimeNow = datetime.datetime.now()
     tableMylog = [[DateTimeNow,myAppVersion,str(mySessionID),myQryCond,myStartPage,myStopPage,myDataType,DataRowsTotal,PageTotal,PageCurrent]]
