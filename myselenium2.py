@@ -16,12 +16,27 @@ from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
 import sys
 
+# macos - Using Python to find Mac UUID/Serial Number - Stack Overflow - https://goo.gl/hY6XrS
+import subprocess
+cmd = "system_profiler SPHardwareDataType | grep 'Serial Number' | awk '{print $4}'"
+result = subprocess.run(cmd, stdout=subprocess.PIPE, shell=True, check=True)
+serial_number = result.stdout.strip()
+
+# print(serial_number.decode("utf-8") )
+
+# AES-demo
+# python3.6 实现AES加密、解密（改版） - melody_sy博客 - CSDN博客 - https://goo.gl/75cDTv
+
 # App History
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
-myAppVersion = "2018111301"
+
+myAppVersion = "2018111401"
 
 '''
+### myAppVersion = "2018111401"
+* Send email login notification with MacOS SN and application parameters
+
 ### myAppVersion = "2018111301"
 * Close first Popup Page
 * Modify queryCmpyDetail Fields
@@ -91,6 +106,33 @@ myHeadlessMode  = sys.argv[6]
 # quit()
 
 isTurnOffChrome = True if myTurnOffChrome == "0" else False
+
+# 使用 Python 寄發 Gmail | Yu-Cheng Huang - https://goo.gl/ELX55X
+import smtplib
+from email.mime.text import MIMEText
+
+gmail_user = 'smtpzengpx@gmail.com'
+gmail_password = '1qaz@WSX3edc' # your gmail password
+
+msgContent = 'Login - ' + serial_number.decode("utf-8")
+msgContent += '\r\n' + 'myQryCond: ' + myQryCond
+msgContent += '\r\n' + 'myStartPage: ' + str(myStartPage)
+msgContent += '\r\n' + 'myStopPage: ' + str(myStopPage)
+msgContent += '\r\n' + 'myDataType: ' + myDataType
+msgContent += '\r\n' + 'myTurnOffChrome: ' + myTurnOffChrome
+msgContent += '\r\n' + 'myHeadlessMode: ' + myHeadlessMode
+msg = MIMEText(msgContent)
+msg['Subject'] = 'myCrawler2018_user_' + serial_number.decode("utf-8") 
+msg['From'] = gmail_user
+msg['To'] = 'st.zengpx@gmail.com'
+
+server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+server.ehlo()
+server.login(gmail_user, gmail_password)
+server.send_message(msg)
+server.quit()
+
+print(serial_number.decode("utf-8") + ' - Login alert was sent.')
 
 #driver = webdriver.Chrome()
 #driver.get("http://www.baidu.com")
