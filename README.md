@@ -1,6 +1,6 @@
 # MyCrawler
 
-自動抓取 "商工登記公示資料查詢服務 - https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" 資料，然後再輸出成 Excel 的表格檔案。
+爬蟲 自動抓取 "中華民國 台灣 經濟部商業司 商工登記公示資料查詢服務 - https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" 資料，然後再輸出成 Excel 的表格檔案。
 
 ## Getting Started
 
