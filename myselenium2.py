@@ -31,9 +31,12 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018111501"
+myAppVersion = "2018111502"
 
 '''
+### myAppVersion = "2018111502"
+* Modify "TmpCorpType" fields from 7 to 9
+
 ### myAppVersion = "2018111501"
 * Bug fix for count initial popup browser windows
 
@@ -262,7 +265,7 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 # print("5")
                 TmpStockStatus = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
                 TmpStockStatus = TmpStockStatus.strip()
-                TmpCorpType    = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[7]").get_attribute("innerHTML")
+                TmpCorpType    = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[9]").get_attribute("innerHTML")
                 TmpCorpType    = TmpCorpType.strip()
                 TmpAmountReal  = ""
                 if TmpCorpType == "公司屬性":
