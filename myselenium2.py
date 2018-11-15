@@ -31,9 +31,12 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018111401"
+myAppVersion = "2018111501"
 
 '''
+### myAppVersion = "2018111501"
+* Bug fix for count initial popup browser windows
+
 ### myAppVersion = "2018111401"
 * Send email login notification with MacOS SN and application parameters
 
@@ -514,8 +517,11 @@ myweb.implicitly_wait(timeoutImplicitlyWait)
 # selenium.webdriver.ChromeOptions Python Example - https://goo.gl/2jnnUc
 # Selenium disable popup blocker in different browsers · Tech Adventures by Tarun Lalwani - https://goo.gl/vTpmH5 
 # Selenium Webdriver with Python - driver.title parameter - Stack Overflow - https://goo.gl/fhjtn4
-myweb.switch_to.window(myweb.window_handles[1])
-myweb.close()
+print('Browser Window Counts:' + str(len(myweb.window_handles)))
+i = 1
+while i < len(myweb.window_handles):
+    myweb.switch_to.window(myweb.window_handles[i])
+    myweb.close()
 myweb.switch_to.window(myweb.window_handles[0])
 myweb.implicitly_wait(timeoutImplicitlyWait)
 
