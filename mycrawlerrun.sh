@@ -30,7 +30,7 @@ echo "Please wait..."
 # pip install openpyxl
 # python myselenium2.py 台中市北區 1 1 10000 0
 # Quick Tip: caffeinate your Terminal - BrettTerpstra.com - https://goo.gl/sXvwRh
-caffeinate -s python3 myselenium2.py $mykeyword $mypagestart $mypagestop $mydatatype 0 1
+caffeinate -i python3 myselenium2.py $mykeyword $mypagestart $mypagestop $mydatatype 0 1
 
 open ~/findbiz/myCrawler2018-master/data/
 exit
