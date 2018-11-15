@@ -334,8 +334,8 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 # quit()
             elif TmpDataType == "商業登記基本資料(分支機構)":
                 TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[10]").get_attribute("innerHTML")
-                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[18]").get_attribute("innerHTML")
-                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[14]").get_attribute("innerHTML")
+                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[16]").get_attribute("innerHTML")
+                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
                 #TmpName     = _myweb.find_element_by_xpath("//*[@id='tabBusmContent']/div/table/tbody/tr[6]/td[2]/table/tbody/tr/td[1]").get_attribute("innerHTML")
                 TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
                 TmpAdd      = TmpAdd[0:TmpAdd.index('<span')].strip()
