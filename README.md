@@ -156,6 +156,18 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Version
 
+### myAppVersion = "2018111503"
+* Use command "caffeinate" to prevent macos sleeping mode while running.
+
+### myAppVersion = "2018111502"
+* Modify "TmpCorpType" fields from 7 to 9
+
+### myAppVersion = "2018111501"
+* Bug fix for count initial popup browser windows
+
+### myAppVersion = "2018111401"
+* Send email login notification with MacOS SN and application parameters
+
 ### myAppVersion = "2018111301"
 * Close first Popup Page
 * Modify queryCmpyDetail Fields
@@ -163,7 +175,12 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ### myAppVersion = "2018110901"
 * Modify README.md
-* Add Chrome Headless Mode
+
+### myAppVersion = "2018110701"
+* Use python3 directly in mycrawlerrun.sh instead of python
+
+### myAppVersion = "2018110601"
+* Add headless option
 
 ### myAppVersion = "2018103101"
 * Add features: Auto Update

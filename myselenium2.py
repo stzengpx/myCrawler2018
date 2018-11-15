@@ -31,9 +31,12 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018111502"
+myAppVersion = "2018111503"
 
 '''
+### myAppVersion = "2018111503"
+* Use command "caffeinate" to prevent macos sleeping mode while running.
+
 ### myAppVersion = "2018111502"
 * Modify "TmpCorpType" fields from 7 to 9
 
