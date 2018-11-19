@@ -31,9 +31,12 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018111503"
+myAppVersion = "2018111901"
 
 '''
+### myAppVersion = "2018111901"
+* Try Catch 使用 Python 寄發 Gmail
+
 ### myAppVersion = "2018111503"
 * Use command "caffeinate" to prevent macos sleeping mode while running.
 
@@ -116,33 +119,36 @@ myHeadlessMode  = sys.argv[6]
 
 isTurnOffChrome = True if myTurnOffChrome == "0" else False
 
-# 使用 Python 寄發 Gmail | Yu-Cheng Huang - https://goo.gl/ELX55X
-import smtplib
-from email.mime.text import MIMEText
-
-gmail_user = 'smtpzengpx@gmail.com'
-gmail_password = '1qaz@WSX3edc' # your gmail password
-
-msgContent = 'Login - ' + serial_number.decode("utf-8")
-msgContent += '\r\n' + 'myQryCond: ' + myQryCond
-msgContent += '\r\n' + 'myStartPage: ' + str(myStartPage)
-msgContent += '\r\n' + 'myStopPage: ' + str(myStopPage)
-msgContent += '\r\n' + 'myDataType: ' + myDataType
-msgContent += '\r\n' + 'myTurnOffChrome: ' + myTurnOffChrome
-msgContent += '\r\n' + 'myHeadlessMode: ' + myHeadlessMode
-msg = MIMEText(msgContent)
-msg['Subject'] = 'myCrawler2018_user_' + serial_number.decode("utf-8") 
-msg['From'] = gmail_user
-msg['To'] = 'st.zengpx@gmail.com'
-
-server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-server.ehlo()
-server.login(gmail_user, gmail_password)
-server.send_message(msg)
-server.quit()
-
-print(serial_number.decode("utf-8") + ' - Login alert was sent.')
-
+try:
+    # 使用 Python 寄發 Gmail | Yu-Cheng Huang - https://goo.gl/ELX55X
+    import smtplib
+    from email.mime.text import MIMEText
+    
+    gmail_user = 'smtpzengpx@gmail.com'
+    gmail_password = '1qaz@WSX3edc' # your gmail password
+    
+    msgContent = 'Login - ' + serial_number.decode("utf-8")
+    msgContent += '\r\n' + 'myQryCond: ' + myQryCond
+    msgContent += '\r\n' + 'myStartPage: ' + str(myStartPage)
+    msgContent += '\r\n' + 'myStopPage: ' + str(myStopPage)
+    msgContent += '\r\n' + 'myDataType: ' + myDataType
+    msgContent += '\r\n' + 'myTurnOffChrome: ' + myTurnOffChrome
+    msgContent += '\r\n' + 'myHeadlessMode: ' + myHeadlessMode
+    msg = MIMEText(msgContent)
+    msg['Subject'] = 'myCrawler2018_user_' + serial_number.decode("utf-8") 
+    msg['From'] = gmail_user
+    msg['To'] = 'st.zengpx@gmail.com'
+    
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server.ehlo()
+    server.login(gmail_user, gmail_password)
+    server.send_message(msg)
+    server.quit()
+    
+    print(serial_number.decode("utf-8") + ' - Login alert was sent.')
+except Exception as e:
+    print (e)
+    print ('Warning! Login aler was not sent...')
 #driver = webdriver.Chrome()
 #driver.get("http://www.baidu.com")
 #driver.find_element_by_id('kw').send_keys('selenium')
