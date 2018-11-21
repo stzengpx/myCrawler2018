@@ -31,10 +31,10 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018111901"
+myAppVersion = "2018111902"
 
 '''
-### myAppVersion = "2018111901"
+### myAppVersion = "2018111902"
 * Try Catch 使用 Python 寄發 Gmail
 
 ### myAppVersion = "2018111503"
