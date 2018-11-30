@@ -177,6 +177,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Version
 
+### myAppVersion = "2018113002"
+* Add TmpDataType == "外國公司登記基本資料"
+
 ### myAppVersion = "2018113001"
 * Use 'conda' as python virtual environment
 
