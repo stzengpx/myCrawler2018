@@ -31,9 +31,12 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018113001"
+myAppVersion = "2018113002"
 
 '''
+### myAppVersion = "2018113002"
+* Add TmpDataType == "外國公司登記基本資料"
+
 ### myAppVersion = "2018113001"
 * Use 'conda' as python virtual environment
 
@@ -247,6 +250,13 @@ def MyMoreLinkCollection(_workbook, _worksheet, _myweb, _PageCurrent):
                 TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[8]").get_attribute("innerHTML")
                 TmpCorp     = TmpCorp[TmpCorp.index('">')+2:TmpCorp.index("</a>")].strip()
                 TmpAdd      = TmpAdd[0:TmpAdd.index('<span')].strip()
+                TmpName     = TmpName.strip()
+            elif TmpDataType == "外國公司登記基本資料":
+                TmpCorp     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[6]").get_attribute("innerHTML")
+                TmpAdd      = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[12]").get_attribute("innerHTML")
+                TmpName     = _myweb.find_element_by_xpath("(//table[@class='table table-striped']/tbody/tr/td)[10]").get_attribute("innerHTML")
+                TmpCorp     = TmpCorp[0:TmpCorp.index("<span")].strip()
+                TmpAdd      = TmpAdd[0:TmpAdd.index("<span")].strip()
                 TmpName     = TmpName.strip()
             elif TmpDataType == "外國公司報備基本資料":
                 # print("4")
