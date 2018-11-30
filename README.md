@@ -1,3 +1,4 @@
+
 # MyCrawler
 
 爬蟲 自動抓取 "中華民國 台灣 經濟部商業司 商工登記公示資料查詢服務 - https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" 資料，然後再輸出成 Excel 的表格檔案。
@@ -50,7 +51,19 @@ brew install python
 ```
 easy_install pip
 ```
-7. virtualenv
+7. conda (recommended)
+```
+cd ~
+wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh
+conda create --name py3mycrawler
+conda install -n py3mycrawler pip
+conda install -n py3mycrawler openpyxl
+conda install -n py3mycrawler Selenium
+source activate py3mycrawler
+source deactivate # to leave the conda virtual environment
+```
+8. virtualenv (optional)
 * Install
 ```
 pip install virtualenv
@@ -59,17 +72,14 @@ pip install virtualenv
 ```
 virtualenv -p python3 venv
 ```
-8. openpyxl
+* install openpyxl
 ```
 pip install openpyxl
 ```
-9. Selenium
+* install Selenium
 ```
 pip install selenium
 ```
-10.  Selenium WebDriver - ChromeDriver 2.43
-[Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
-
 #### (optional) Install all the packages for developing the project
 ```
 pip freeze > requirements.txt # only for the really creator of this project
@@ -77,11 +87,15 @@ pip install pur
 pip install -r requirements.txt
 ```
 
+9.  Selenium WebDriver - ChromeDriver 2.43
+[Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+
 ## Running the application for developers
 
-執行終端機後，先切換至此 APP 的工作目錄，並進入 virtualenv。
+執行終端機後，先切換至此 APP 的工作目錄，並進入 conda virtualenv。
 ```
-cd mycrawler; source bin/activate; clear;
+cd mycrawler
+source activate py3mycrawler
 ```
 程式執行的指令格式如下：
 ```
@@ -109,14 +123,17 @@ python myselenium2.py 台中市北區 1 0 10000 0 1
 * Google Chrome 版本 70.0.3538.67 (正式版本) (64 位元) (以上)
 * brew
 * python 3
-* virtualenv
-* Selenium WebDriver - ChromeDriver 2.43
 * wget
+* Selenium WebDriver - ChromeDriver 2.43
+* conda
+* openpyxl
+* Selenium
 
 請下載 - [操作手冊](https://goo.gl/QXufJV)
 
 ### Initial for the first run
 ```
+# source activate py3mycrawler # optional
 clear
 cd ~
 mkdir findbiz
@@ -129,11 +146,15 @@ cp myCrawler2018-master/mycrawler.sh ~/findbiz/
 ### General running
 #### Without update
 ```
+# source activate py3mycrawler # optional
 clear; cd ~/findbiz; bash mycrawler.sh
+# source deactivate # optional
 ```
 #### With update
 ```
+# source activate py3mycrawler # optional
 clear; cd ~/findbiz; bash mycrawler.sh update
+# source deactivate # optional
 ```
 #### Exception
 Once there comes an error and the app down, you can force to stop it.
@@ -155,6 +176,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * A template to make good README.md - https://goo.gl/tp2n6X
 
 ## Version
+
+### myAppVersion = "2018113001"
+* Use 'conda' as python virtual environment
 
 ### myAppVersion = "2018111503"
 * Use command "caffeinate" to prevent macos sleeping mode while running.
