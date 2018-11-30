@@ -31,11 +31,15 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018113002"
+myAppVersion = "2018113004"
 
 '''
+### myAppVersion = "2018113004"
+### myAppVersion = "2018113003"
 ### myAppVersion = "2018113002"
 * Add TmpDataType == "外國公司登記基本資料"
+* Branch develop
+* Pull request and merge
 
 ### myAppVersion = "2018113001"
 * Use 'conda' as python virtual environment
