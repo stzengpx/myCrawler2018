@@ -31,9 +31,10 @@ serial_number = result.stdout.strip()
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
 
-myAppVersion = "2018113004"
+myAppVersion = "2018113005"
 
 '''
+### myAppVersion = "2018113005"
 ### myAppVersion = "2018113004"
 ### myAppVersion = "2018113003"
 ### myAppVersion = "2018113002"
