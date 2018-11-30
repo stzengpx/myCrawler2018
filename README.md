@@ -177,8 +177,12 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Version
 
+### myAppVersion = "2018113004"
+### myAppVersion = "2018113003"
 ### myAppVersion = "2018113002"
 * Add TmpDataType == "外國公司登記基本資料"
+* Branch develop
+* Pull request and merge
 
 ### myAppVersion = "2018113001"
 * Use 'conda' as python virtual environment
