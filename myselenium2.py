@@ -30,10 +30,14 @@ serial_number = result.stdout.strip()
 # App History
 officialSiteVersion = "1.2.9" # 20181101
 officialSiteVersion = "1.3.1" # 20181113
+officialSiteVersion = "1.3.5" # 20200108
 
-myAppVersion = "2020010801"
+myAppVersion = "2020010802"
 
 '''
+### myAppVersion = "2020010802"
+* * officialSiteVersion = "1.3.5"
+
 ### myAppVersion = "2020010801"
 * Modify README.md
 
@@ -90,6 +94,11 @@ myAppVersion = "2020010801"
 * Add '程式版本','網頁版本' in the excel data
 '''
 
+'''Test
+python3 myselenium2.py $mykeyword $mypagestart $mypagestop $mydatatype 0 1
+python3 myselenium2.py 台北市內湖區 1 2 10000 1 0
+'''
+
 # App Parameter
 isDebugMode = True
 isTurnOffChrome = True
@@ -126,8 +135,10 @@ myDataType2     = sys.argv[4][1:2]
 myDataType3     = sys.argv[4][2:3]
 myDataType4     = sys.argv[4][3:4]
 myDataType5     = sys.argv[4][4:5]
+
 myTurnOffChrome = sys.argv[5]
 myHeadlessMode  = sys.argv[6]
+
 # example: python myselenium2.py 宜蘭 1 2 00010
 # quit()
 
@@ -139,8 +150,9 @@ try:
     from email.mime.text import MIMEText
     
     gmail_user = 'smtpzengpx@gmail.com'
-    gmail_password = '1qaz@WSX3edc' # your gmail password
-    
+    #gmail_password = '1qaz@WSX3edc' # your gmail password
+    gmail_password = 'ygvfikiwcdyykboj' # 20200108 應用程式密碼 https://support.google.com/accounts/answer/185833
+
     msgContent = 'Login - ' + serial_number.decode("utf-8")
     msgContent += '\r\n' + 'myQryCond: ' + myQryCond
     msgContent += '\r\n' + 'myStartPage: ' + str(myStartPage)
@@ -169,6 +181,8 @@ except Exception as e:
 #driver.find_element_by_id('su').click()
 #driver.quit()
 
+print('mytest')
+quit()
 
 # [Python] 使用Selenium在Google Chrome瀏覽器 @ Jialin :: 痞客邦 :: - https://goo.gl/TTv8C8
 #web = webdriver.Chrome()
