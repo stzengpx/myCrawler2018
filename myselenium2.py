@@ -181,8 +181,8 @@ except Exception as e:
 #driver.find_element_by_id('su').click()
 #driver.quit()
 
-print('mytest')
-quit()
+# print('mytest')
+# quit()
 
 # [Python] 使用Selenium在Google Chrome瀏覽器 @ Jialin :: 痞客邦 :: - https://goo.gl/TTv8C8
 #web = webdriver.Chrome()
