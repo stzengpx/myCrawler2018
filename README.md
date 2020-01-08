@@ -133,7 +133,9 @@ python myselenium2.py 台中市北區 1 0 10000 0 1
 
 ### Initial for the first run
 ```
-# source activate py3mycrawler # optional
+# pyenv versions # optional # make sure the python version is 3.6.8
+# mkvirtualenv py3mycrawler # optional
+# workon py3mycrawler # optional
 clear
 cd ~
 mkdir findbiz
@@ -144,13 +146,13 @@ cp myCrawler2018-master/mycrawler.sh ~/findbiz/
 ```
 
 ### General running
-#### Without update
+#### Without update to the latest mycrawler program
 ```
 # source activate py3mycrawler # optional
 clear; cd ~/findbiz; bash mycrawler.sh
 # source deactivate # optional
 ```
-#### With update
+#### With update to the latest mycrawler program
 ```
 # source activate py3mycrawler # optional
 clear; cd ~/findbiz; bash mycrawler.sh update
@@ -176,6 +178,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * A template to make good README.md - https://goo.gl/tp2n6X
 
 ## Version
+
+### myAppVersion = "2020010801"
+* Modify README.md
 
 ### myAppVersion = "2018113005"
 ### myAppVersion = "2018113004"
