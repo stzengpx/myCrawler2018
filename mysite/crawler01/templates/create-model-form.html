@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} My tasks {% endblock %}
+{% block content%}
+<h2> Tasks Create</h2>
+
+{% if user.is_authenticated %}
+  Hello, {{ user.username }}!</br>
+  <a href="{% url 'logout' %}">Logout</a><br>
+  <hr>
+
+{% comment %} <form method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+<input type="submit" value="save" />
+</form> {% endcomment %}
+
+
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Login Page</a>
+{% endif %}
+
+{% endblock %}

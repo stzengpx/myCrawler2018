@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} My Detail {% endblock %}
+{% block content%}
+    <h1> Hello Detail Template </h1>
+
+{% if user.is_authenticated %}
+  Hello, {{ user.username }}!</br>
+
+{% for vlist in tasks_list %}
+  <h1> ID : {{vlist.id }} </h1>
+  <ul>
+      <li>User : {{vlist.user_name }}</li>
+      <li>Email : {{ vlist.user_email }}</li>
+      <li>Condition : {{ vlist.QryCond }}</li>
+  </ul>
+{% endfor %}
+
+  <a href="{% url 'logout' %}">Logout</a><br>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Login Page</a>
+{% endif %}
+
+{% endblock %}
