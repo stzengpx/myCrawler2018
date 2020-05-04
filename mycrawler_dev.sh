@@ -4,12 +4,12 @@ read Name
 echo "您的帳號是：$Name"
 if [[ $1 == "update" ]];then
     echo "Updating......"
-    rm master.zi*
+    rm chinapost.zi*
     wget https://github.com/stzengpx/myCrawler2018/archive/chinapost.zip
-    unzip -oq master.zip
+    unzip -oq chinapost.zip
     cp myCrawler2018-chinapost/mycrawler.sh ~/findbiz/
     cp myCrawler2018-chinapost/mycrawlerrun.sh ~/findbiz/
     echo "Update Complete!"
 fi
-rm master.zi*
+rm chinapost.zi*
 cd ~/findbiz/; bash mycrawlerrun_dev.sh
