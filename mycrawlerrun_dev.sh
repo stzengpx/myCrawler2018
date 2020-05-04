@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/findbiz/myCrawler2018-master
+cd ~/findbiz/myCrawler2018-chinapost
 # source bin/activate
 # source venv.sh
 pip install -r requirements.txt
@@ -36,6 +36,6 @@ echo "Please wait..."
 # caffeinate -i python3 myselenium2.py $mykeyword $mypagestart $mypagestop $mydatatype 0 1
 caffeinate -i python3 myselenium2starter.py $mykeywordcity $mykeywordcityarea $mypagestart $mypagestop $mydatatype 0 1
 
-open ~/findbiz/myCrawler2018-master/data/
+open ~/findbiz/myCrawler2018-chinapost/data/
 exit
 # deactivate
