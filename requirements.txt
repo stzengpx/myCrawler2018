@@ -3,3 +3,4 @@ jdcal==1.4
 openpyxl==2.5.9
 selenium==3.14.1
 urllib3==1.24.2
+beautifulsoup4==4.9.0

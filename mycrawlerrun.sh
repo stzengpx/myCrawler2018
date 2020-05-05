@@ -2,16 +2,19 @@
 cd ~/findbiz/myCrawler2018-master
 # source bin/activate
 # source venv.sh
-# pip install -r requirements.txt
+pip install -r requirements.txt
 pwd
 python --version
 pip --version
 python3 --version
 pip3 --version
 
-
-echo "請輸入關鍵字(中文地區名)："
-read mykeyword
+# echo "請輸入關鍵字(中文地區名)："
+# read mykeyword
+echo "請輸入城市名(例如：臺北市 或 ALL)："
+read mykeywordcity
+echo "請輸入地區名(例如：內湖區 或 若城市為 ALL，則在此輸入完整城市+地區+路名)："
+read mykeywordcityarea
 echo "請輸入開始頁數(數字，最少請輸入 1)："
 read mypagestart
 echo "請輸入結束頁數(數字，0 為全部)："
@@ -30,7 +33,8 @@ echo "Please wait..."
 # pip install openpyxl
 # python myselenium2.py 台中市北區 1 1 10000 0
 # Quick Tip: caffeinate your Terminal - BrettTerpstra.com - https://goo.gl/sXvwRh
-caffeinate -i python3 myselenium2.py $mykeyword $mypagestart $mypagestop $mydatatype 0 1
+# caffeinate -i python3 myselenium2.py $mykeyword $mypagestart $mypagestop $mydatatype 0 1
+caffeinate -i python3 myselenium2starter.py $mykeywordcity $mykeywordcityarea $mypagestart $mypagestop $mydatatype 0 1
 
 open ~/findbiz/myCrawler2018-master/data/
 exit

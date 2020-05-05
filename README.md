@@ -87,8 +87,13 @@ pip install pur
 pip install -r requirements.txt
 ```
 
-9.  Selenium WebDriver - ChromeDriver 2.43
+9. Selenium WebDriver - ChromeDriver 2.43
 [Selenium ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+
+10. BeautifulSoup
+```
+pip3 install beautifulsoup4
+```
 
 ## Running the application for developers
 
@@ -128,6 +133,7 @@ python myselenium2.py 台中市北區 1 0 10000 0 1
 * conda
 * openpyxl
 * Selenium
+* BeautifulSoup
 
 請下載 - [操作手冊](https://goo.gl/QXufJV)
 
@@ -178,6 +184,18 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * A template to make good README.md - https://goo.gl/tp2n6X
 
 ## Version
+
+### myAppVersion = "2020043001"
+* Use city and city area to get street list from Chian Post
+* Refactor main()
+* Refactor myselenium2 with Class
+* Add start mail and end mail
+* Add myselenium2starter
+* Add "外國公司辦事處登記基本資料"
+* officailSiteVersion = "1.3.6"
+
+### myAppVersion = "2020010802"
+* officialSiteVersion = "1.3.5"
 
 ### myAppVersion = "2020010801"
 * Modify README.md
