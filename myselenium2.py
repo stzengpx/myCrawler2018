@@ -32,7 +32,9 @@ class myselenium2():
         self.isTurnOffChrome = True
         self.timeoutImplicitlyWait = 30
 
-        self.myQryCondMailTitle  = ""
+        self.myQryCondMailTitleCity  = ""
+        self.myQryCondMailTitleArea  = ""
+        
         self.myQryCond           = ""
         self.myStartPage         = ""
         self.myStopPage          = ""
@@ -68,7 +70,7 @@ class myselenium2():
         serial_number = result.stdout.strip()
         return serial_number
 
-    def mySendMailUsage(self, issue):
+    def mySendMailUsage(self, _issue):
         try:
             # 使用 Python 寄發 Gmail | Yu-Cheng Huang - https://goo.gl/ELX55X
             # import smtplib
@@ -86,7 +88,7 @@ class myselenium2():
             msgContent += '\r\n' + 'myTurnOffChrome: ' + self.myTurnOffChrome
             msgContent += '\r\n' + 'myHeadlessMode: ' + self.myHeadlessMode
             msg = MIMEText(msgContent)
-            msg['Subject'] = 'myCrawler2018_user_' + self.serial_number.decode("utf-8") + '_' + self.myQryCondMailTitle + '_' + issue
+            msg['Subject'] = 'myCrawler2018_user_' + self.serial_number.decode("utf-8") + '_' + self.myQryCondMailTitleCity + '_' + self.myQryCondMailTitleArea  + '_' + _issue
             msg['From'] = gmail_user
             msg['To'] = 'st.zengpx@gmail.com'
             
