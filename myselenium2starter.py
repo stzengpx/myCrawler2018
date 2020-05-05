@@ -85,7 +85,10 @@ def main():
     cityarea = sys.argv[2].strip()
     
     myObj = myselenium2.myselenium2()
-    myObj.myQryCondMailTitle = city + cityarea
+    
+    myObj.myQryCondMailTitleCity = city
+    myObj.myQryCondMailTitleArea = cityarea
+
     myObj.myQryCond          = city + cityarea
     myObj.myStartPage        = int(sys.argv[3])
     myObj.myStopPage         = int(sys.argv[4]) # 0 means all
