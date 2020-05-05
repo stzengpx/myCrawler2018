@@ -101,7 +101,7 @@ def main():
     myObj.mySendMailUsage("start")
 
     
-    if city == '000':
+    if city == 'ALL':
         myObj.myQryCond = cityarea
         myObj.myMainCrawler()
     

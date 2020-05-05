@@ -11,9 +11,9 @@ pip3 --version
 
 # echo "請輸入關鍵字(中文地區名)："
 # read mykeyword
-echo "請輸入城市名(例如：臺北市)："
+echo "請輸入城市名(例如：臺北市 或 ALL)："
 read mykeywordcity
-echo "請輸入地區名(例如：內湖區)："
+echo "請輸入地區名(例如：內湖區 或 若城市為 ALL，則在此輸入完整城市+地區+路名)："
 read mykeywordcityarea
 echo "請輸入開始頁數(數字，最少請輸入 1)："
 read mypagestart
