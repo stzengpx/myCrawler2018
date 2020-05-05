@@ -32,17 +32,18 @@ class myselenium2():
         self.isTurnOffChrome = True
         self.timeoutImplicitlyWait = 30
 
-        self.myQryCond       = ""
-        self.myStartPage     = ""
-        self.myStopPage      = ""
-        self.myDataType      = ""
-        self.myDataType1     = ""
-        self.myDataType2     = ""
-        self.myDataType3     = ""
-        self.myDataType4     = ""
-        self.myDataType5     = ""
-        self.myTurnOffChrome = ""
-        self.myHeadlessMode  = ""
+        self.myQryCondMailTitle  = ""
+        self.myQryCond           = ""
+        self.myStartPage         = ""
+        self.myStopPage          = ""
+        self.myDataType          = ""
+        self.myDataType1         = ""
+        self.myDataType2         = ""
+        self.myDataType3         = ""
+        self.myDataType4         = ""
+        self.myDataType5         = ""
+        self.myTurnOffChrome     = ""
+        self.myHeadlessMode      = ""
         
         self.isTurnOffChrome = True if self.myTurnOffChrome == "0" else False
         
@@ -67,7 +68,7 @@ class myselenium2():
         serial_number = result.stdout.strip()
         return serial_number
 
-    def mySendMailUsage(self):
+    def mySendMailUsage(self, issue):
         try:
             # 使用 Python 寄發 Gmail | Yu-Cheng Huang - https://goo.gl/ELX55X
             # import smtplib
@@ -85,7 +86,7 @@ class myselenium2():
             msgContent += '\r\n' + 'myTurnOffChrome: ' + self.myTurnOffChrome
             msgContent += '\r\n' + 'myHeadlessMode: ' + self.myHeadlessMode
             msg = MIMEText(msgContent)
-            msg['Subject'] = 'myCrawler2018_user_' + self.serial_number.decode("utf-8") 
+            msg['Subject'] = 'myCrawler2018_user_' + self.serial_number.decode("utf-8") + '_' + self.myQryCondMailTitle + '_' + issue
             msg['From'] = gmail_user
             msg['To'] = 'st.zengpx@gmail.com'
             
@@ -691,10 +692,11 @@ python3 myselenium2.py 台北市內湖區 1 2 10000 1 0
 
 '''
 ### myAppVersion = "2020043001"
+* Use city and city area to get street list from Chian Post
 * Refactor main()
 * Refactor myselenium2 with Class
+* Add start mail and end mail
 * Add myselenium2starter
-* Use city and city area to get street list from Chian Post
 * Add "外國公司辦事處登記基本資料"
 * officailSiteVersion = "1.3.6"
 

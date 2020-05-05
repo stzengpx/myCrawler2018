@@ -186,10 +186,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Version
 
 ### myAppVersion = "2020043001"
+* Use city and city area to get street list from Chian Post
 * Refactor main()
 * Refactor myselenium2 with Class
+* Add start mail and end mail
 * Add myselenium2starter
-* Use city and city area to get street list from Chian Post
 * Add "外國公司辦事處登記基本資料"
 * officailSiteVersion = "1.3.6"
 

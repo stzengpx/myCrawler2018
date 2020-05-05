@@ -78,32 +78,36 @@ def main():
     # python3 myselenium2starter.py 台北市 內湖區 1 2 10000 1 0
     # python3 myselenium2starter.py 000 台北市內湖區內湖路１段  1 2 10000 1 0
 
-    myObj = myselenium2.myselenium2()
-    myObj.mySendMailUsage()
     
     chkParameters()
 
-    myObj.myStartPage     = int(sys.argv[3])
-    myObj.myStopPage      = int(sys.argv[4]) # 0 means all
-    myObj.myDataType      = sys.argv[5]
-    myObj.myDataType1     = sys.argv[5][0:1]
-    myObj.myDataType2     = sys.argv[5][1:2]
-    myObj.myDataType3     = sys.argv[5][2:3]
-    myObj.myDataType4     = sys.argv[5][3:4]
-    myObj.myDataType5     = sys.argv[5][4:5]
-
-    myObj.myTurnOffChrome = sys.argv[6]
-    myObj.myHeadlessMode  = sys.argv[7]
-
     city = sys.argv[1].strip()
     cityarea = sys.argv[2].strip()
+    
+    myObj = myselenium2.myselenium2()
+    myObj.myQryCondMailTitle = city + cityarea
+    myObj.myQryCond          = city + cityarea
+    myObj.myStartPage        = int(sys.argv[3])
+    myObj.myStopPage         = int(sys.argv[4]) # 0 means all
+    myObj.myDataType         = sys.argv[5]
+    myObj.myDataType1        = sys.argv[5][0:1]
+    myObj.myDataType2        = sys.argv[5][1:2]
+    myObj.myDataType3        = sys.argv[5][2:3]
+    myObj.myDataType4        = sys.argv[5][3:4]
+    myObj.myDataType5        = sys.argv[5][4:5]
 
+    myObj.myTurnOffChrome    = sys.argv[6]
+    myObj.myHeadlessMode     = sys.argv[7]
+    myObj.mySendMailUsage("start")
+
+    
     if city == '000':
         myObj.myQryCond = cityarea
         myObj.myMainCrawler()
     
     else:
 
+        myList = []
         myList = getStreetName(city,cityarea)
 
         if len(myList) == 0:
@@ -120,6 +124,8 @@ def main():
                 myObj.myQryCond       = city + cityarea + myStr
                 myObj.myMainCrawler()
 
+
+    myObj.mySendMailUsage("end")
 
 
 if __name__ == "__main__":
