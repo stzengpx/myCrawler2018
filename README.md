@@ -185,6 +185,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Version
 
+### myAppVersion = "2020051301"
+* Refactor the coding style by flake8 and yapf
+
 ### myAppVersion = "2020043001"
 * Use city and city area to get street list from Chian Post
 * Refactor main()
